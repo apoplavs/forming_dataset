@@ -163,4 +163,19 @@ class SrcDocument extends Model
 			->where('instance_code', 3)
 			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
 	}
+	
+	
+	/**
+	 * повертає текст документу за переданим id
+	 * @return Model|SrcDocument
+	 * \Illuminate\Database\Query\Builder[]
+	 * \Illuminate\Support\Collection
+	 * SrcDocument[]
+	 */
+	public static function getTextById($doc_id) {
+		$obj_doc = static::select('doc_text')
+			->where('doc_id', $doc_id)
+			->first();
+		return ($obj_doc->doc_text);
+	}
 }

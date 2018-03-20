@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('/choose-category', 'ChooseCategoryController@index');
+Route::get('choose-category', 'ChooseCategoryController@index')->name('choose-category');
 
 Route::post('set-doctype', 'MlDatasetController@store');
 

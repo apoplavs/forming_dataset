@@ -145,7 +145,8 @@ class ChooseCategoryController extends Controller
 				$buttons = [
 					["name"=> "початок провадження", "val"=> "13"],
 					["name"=> "зупинення провадження", "val"=> "14"],
-					["name"=> "відновлення провадження", "val"=> "15"]
+					["name"=> "відновлення провадження", "val"=> "15"],
+					["name"=> "кінцеве рішення", "val"=> "16"]
 				];
 				break;
 			case 2:

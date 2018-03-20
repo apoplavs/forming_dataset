@@ -18,6 +18,7 @@ class CreateMlDatasetsTable extends Migration
 				$table->increments('id');
 				$table->integer('doc_id');
 				$table->smallInteger('category');
+				$table->text('doc_text');
  
 				$table->foreign('category')->references('id')->on('categories');
 			});

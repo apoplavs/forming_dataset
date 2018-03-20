@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                        <form class="form-horizontal" method="GET" action="/choose-category">
+                        <form class="form-horizontal" method="GET" action="{{ route('choose-category') }}">
 
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="category" id="civil" value="civil" required checked>
