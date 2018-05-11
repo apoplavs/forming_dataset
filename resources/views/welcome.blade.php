@@ -6,7 +6,7 @@
                     <div class="col-md-6 col-md-offset-4">
                         <br>
                         <h1 style="font-size: 80px">
-                            ТОЕ суд
+                            ТОЕсуд
                         </h1>
                         <h4>формування датасету для ТОЕ</h4>
                     </div>

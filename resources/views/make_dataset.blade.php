@@ -25,7 +25,7 @@
                             <div class="btn-group btn-group-sm" role="group">
                                 <button id="previous-doc" class="btn btn-info" onclick="previousDoc();">&lt; попередній документ</button>
                                 <button class="btn btn-warning" onclick="stopFormDataset();">завершити</button>
-                                <button id="next-doc" class="btn btn-info" onclick="nextDoc();">жоден із варіантів &gt;</button>
+                                <button id="next-doc" class="btn btn-info" onclick="setCategory({{ $other }});">жоден із варіантів &gt;</button>
                             </div>
                         </div>
                 </div>

@@ -69,6 +69,11 @@
                                     </div>
                                 </div>
                         </form>
+                        @if(Auth::user()->name == "admin")
+                        <a href="{{ route('get-dataset') }}?token={{ Hash::make('toe-cyd') }}" style="float: right">
+                            <button class="btn btn-primary">скачати датасет</button>
+                        </a>
+                        @endif
 
                 </div>
             </div>

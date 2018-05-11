@@ -33,11 +33,11 @@ class MlDatasetController extends Controller
 		/* якщо кінцевим рішенням може бути документ тільки з певної категорії,
 		відносимо його тієї категорії*/
 		switch ($category) {
-			case 9:
-				MlDataset::insertRow($doc_id, 11, $doc_text);
+			case 11:
+				MlDataset::insertRow($doc_id, 14, $doc_text);
 				break;
-			case 16:
-				MlDataset::insertRow($doc_id, 18, $doc_text);
+			case 20:
+				MlDataset::insertRow($doc_id, 23, $doc_text);
 				break;
 		}
 	}

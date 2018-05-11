@@ -17,9 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('set-doctype', 'MlDatasetController@store');
+
 Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('choose-category', 'ChooseCategoryController@index')->name('choose-category');
 
-Route::post('set-doctype', 'MlDatasetController@store');
-
+Route::get('get-dataset', 'GetDatasetController@index')->name('get-dataset');

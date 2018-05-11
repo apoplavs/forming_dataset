@@ -3,17 +3,29 @@
 namespace TOEcyd\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
 
-class SetDoctypeController extends Controller
+class GetDatasetController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
-     */
+     * @return \Illuminate\Http\Response|string
+	 */
     public function index()
     {
-        //
+    	$token = Input::get('token');
+    	if (!Hash::check('toe-cyd', $token)) {
+			return ('<h1>Fuck off</h1>');
+		}
+		$file = "categories.sql";
+    	if (file_exists($file)) {
+    		unlink($file);
+		}
+		// дамп таблиці ml_datasets
+		exec('mysqldump -u '.env('DB_USERNAME').' -p'.env('DB_PASSWORD').' forming_dataset ml_datasets > '.$file);
+		return response()->download($file);
     }
 
     /**
@@ -34,8 +46,7 @@ class SetDoctypeController extends Controller
      */
     public function store(Request $request)
     {
-    	
-    	//
+		//
     }
 
     /**

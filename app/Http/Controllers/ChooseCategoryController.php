@@ -105,61 +105,70 @@ class ChooseCategoryController extends Controller
 	
 	/**
 	 * @param $type_documents
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
 	 */
 	private function civil($type_documents) {
     	switch ($type_documents) {
 			case 1:
 				$doc_set = SrcDocument::civil1();
 				$buttons = [
-					["name"=> "початок провадження", "val"=> "6"],
-					["name"=> "зупинення провадження", "val"=> "7"],
-					["name"=> "відновлення провадження", "val"=> "8"],
-					["name"=> "кінцеве рішення", "val"=> "9"]
+					["name"=> "початок провадження", "val"=> "8"],
+					["name"=> "зупинення провадження", "val"=> "9"],
+					["name"=> "відновлення провадження", "val"=> "10"],
+					["name"=> "кінцеве рішення", "val"=> "11"]
 				];
+				$other = "12";
 				break;
 			case 2:
 				$doc_set = SrcDocument::civil2();
 				$buttons = [
-					["name"=> "задоволено вимоги позивача", "val"=> "10"],
-					["name"=> "справу вирішено іншим чином", "val"=> "11"],
-					["name"=> "відмовлено у позові", "val"=> "12"]
+					["name"=> "задоволено вимоги позивача", "val"=> "13"],
+					["name"=> "справу вирішено іншим чином", "val"=> "14"],
+					["name"=> "відмовлено у позові", "val"=> "15"]
 				];
+				$other = "16";
 				break;
 		}
-//		$doc_set = str_replace("\n", "</br>", $doc_set);
+		if (count($doc_set) < 3) {
+			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
+		}
 		$doc_set = json_encode($doc_set);
     	$buttons = json_encode($buttons);
-		return view('make_dataset', compact('buttons', 'doc_set'));
+		return view('make_dataset', compact('buttons', 'doc_set', 'other'));
 	}
 	
 	
 	/**
 	 * @param $type_documents
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
 	 */
 	private function criminal($type_documents) {
 		switch ($type_documents) {
 			case 1:
 				$doc_set = SrcDocument::criminal1();
 				$buttons = [
-					["name"=> "початок провадження", "val"=> "13"],
-					["name"=> "зупинення провадження", "val"=> "14"],
-					["name"=> "відновлення провадження", "val"=> "15"],
-					["name"=> "кінцеве рішення", "val"=> "16"]
+					["name"=> "початок провадження", "val"=> "17"],
+					["name"=> "зупинення провадження", "val"=> "18"],
+					["name"=> "відновлення провадження", "val"=> "19"],
+					["name"=> "кінцеве рішення", "val"=> "20"]
 				];
+				$other = "21";
 				break;
 			case 2:
 				$doc_set = SrcDocument::criminal2();
 				$buttons = [
-					["name"=> "особу притягнено до відповідальності", "val"=> "17"],
-					["name"=> "особа звільнена від відповідальності", "val"=> "18"]
+					["name"=> "особу притягнено до відповідальності", "val"=> "22"],
+					["name"=> "особа звільнена від відповідальності", "val"=> "23"]
 				];
+				$other = "24";
 				break;
+		}
+		if (count($doc_set) < 3) {
+			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
 		}
 		$doc_set = json_encode($doc_set);
 		$buttons = json_encode($buttons);
-		return view('make_dataset', compact('buttons', 'doc_set'));
+		return view('make_dataset', compact('buttons', 'doc_set', 'other'));
 	}
 	
 	
@@ -175,7 +184,7 @@ class ChooseCategoryController extends Controller
 	
 	/**
 	 * @param $type_documents
-	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+	 * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
 	 */
 	private function adminoffense($type_documents) {
 		switch ($type_documents) {
@@ -186,17 +195,22 @@ class ChooseCategoryController extends Controller
 					["name"=> "зупинення провадження", "val"=> "2"],
 					["name"=> "відновлення провадження", "val"=> "3"]
 				];
+				$other = "4";
 				break;
 			case 2:
 				$doc_set = SrcDocument::adminoffense2();
 				$buttons = [
-					["name"=> "обвинувачений звільняється від відповідальності", "val"=> "1"],
-					["name"=> "на обвинуваченого накладається стягнення", "val"=> "2"]
+					["name"=> "на обвинуваченого накладається стягнення", "val"=> "5"],
+					["name"=> "обвинувачений звільняється від відповідальності", "val"=> "6"]
 				];
+				$other = "7";
 				break;
+		}
+		if (count($doc_set) < 3) {
+			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
 		}
 		$doc_set = json_encode($doc_set);
 		$buttons = json_encode($buttons);
-		return view('make_dataset', compact('buttons', 'doc_set'));
+		return view('make_dataset', compact('buttons', 'doc_set', 'other'));
 	}
 }

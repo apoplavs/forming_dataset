@@ -19,12 +19,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function civil1() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [8, 9, 10, 11, 12])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 1)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	/**
@@ -36,12 +41,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function civil2() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [13, 14, 15, 16])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 1)
 			->where('judgment_code', 3)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	/**
@@ -53,12 +63,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function criminal1() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [17, 18, 19, 20, 21])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 2)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	/**
@@ -70,12 +85,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function criminal2() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [22, 23, 24])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 2)
 			->where('judgment_code', 1)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	/**
@@ -138,12 +158,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function adminoffense1() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [1, 2, 3, 4])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 5)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	
@@ -156,12 +181,17 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function adminoffense2() {
-		$busy_docs = DB::table('ml_datasets')->pluck('doc_id');
+		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [5, 6, 7])->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
 		return (static::select('doc_id', 'doc_text')
 			->where('justice_kind', 5)
 			->where('judgment_code', 2)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(5)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
 	}
 	
 	
