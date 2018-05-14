@@ -19,12 +19,12 @@
                         <hr>
                         <div id="bottom-of-page"></div>
                         <div id="group-buttons" align="center">
-                            <div id="choose-buttons" class="btn-group" role="group"></div>
+                            <div id="choose-buttons" class="btn-group-lg" role="group"></div>
                             {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
                             <br>
-                            <div class="btn-group btn-group-sm" role="group">
+                            <div class="btn-group btn-group" role="group">
                                 <button id="previous-doc" class="btn btn-info" onclick="previousDoc();">&lt; попередній документ</button>
-                                <button class="btn btn-warning" onclick="stopFormDataset();">завершити</button>
+                                <button class="btn btn-warning m-2" onclick="stopFormDataset();">завершити</button>
                                 <button id="next-doc" class="btn btn-info" onclick="setCategory({{ $other }});">жоден із варіантів &gt;</button>
                             </div>
                         </div>
