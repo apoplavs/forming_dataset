@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MlDataset extends Model
 {
 	public $timestamps = false;
-	protected $fillable = ['doc_id', 'category', 'doc_text'];
+	protected $fillable = ['doc_id', 'category', 'doc_text', 'by_user'];
 	
 	
 	/**

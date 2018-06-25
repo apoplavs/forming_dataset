@@ -79,7 +79,7 @@ function nextDoc() {
 	current_text = refactorDoc(current_doc['doc_text']);
 	document.getElementById('doc-id').innerHTML = current_doc['doc_id'];
     document.getElementById('doc-text').innerHTML = current_text;
-    $("html, body").animate({ scrollTop: $('body').height() - 20 }, 1500);
+    $("html, body").animate({ scrollTop: $('body').height() - 800 }, 1000);
 }
 
 
