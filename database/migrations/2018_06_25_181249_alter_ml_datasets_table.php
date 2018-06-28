@@ -18,10 +18,6 @@ class AlterMlDatasetsTable extends Migration
                 $table->smallInteger('confirm_category')->default(0)->after('category');
                 $table->unsignedInteger('by_user')->default(0)->after('doc_text');
                 $table->unsignedInteger('confirm_by_user')->default(0)->after('by_user');
-
-                $table->foreign('confirm_category')->references('id')->on('categories');
-                $table->foreign('by_user')->references('id')->on('users');
-                $table->foreign('confirm_by_user')->references('id')->on('users');
             });
         }
     }

@@ -116,7 +116,6 @@ class ChooseCategoryController extends Controller
 					["name"=> "зупинення провадження", "val"=> "9"],
 					["name"=> "відновлення провадження", "val"=> "10"],
 					["name"=> "кінцеве рішення", "val"=> "11"],
-					["name"=> "інші стадії", "val"=> "25"]
 				];
 				$other = "12";
 				break;

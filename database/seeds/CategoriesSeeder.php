@@ -19,7 +19,7 @@ class CategoriesSeeder extends Seeder
 //			['id' => '22', 'justice_kind' => '1', 'name' => ''],
 //			['id' => '21', 'justice_kind' => '1', 'name' => ''],
 //			['id' => '20', 'justice_kind' => '1', 'name' => ''],
-			['id' => '25', 'justice_kind' => '1', 'name' => 'Інші стадії'],
+//			['id' => '25', 'justice_kind' => '1', 'name' => 'Інші стадії'],
 		
 			['id' => '24', 'justice_kind' => '2', 'name' => 'Інший вирок'],
 			['id' => '23', 'justice_kind' => '2', 'name' => 'Особа звільнена від відповідальності'],

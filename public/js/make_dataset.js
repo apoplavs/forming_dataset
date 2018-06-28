@@ -24,6 +24,7 @@ function pushDoc() {
     if (doc_categories.length > 0) {
         doc_to_push = doc_categories.shift();
         $.post('set-doctype', doc_to_push, function (data) {
+			// document.getElementById('doc-id').innerHTML = data;
         });
     }
 }
@@ -31,6 +32,7 @@ function pushDoc() {
 
 // присвоює категорію для певного документу
 function setCategory(category) {
+	hideButtons();
     doc_id = document.getElementById('doc-id').innerHTML;
 	doc_categories.push({doc_id: doc_id, category: category});
 
@@ -80,6 +82,14 @@ function nextDoc() {
 	document.getElementById('doc-id').innerHTML = current_doc['doc_id'];
     document.getElementById('doc-text').innerHTML = current_text;
     $("html, body").animate({ scrollTop: $('body').height() - 800 }, 1000);
+}
+
+// приховує кнопки на 5 сек
+function hideButtons() {
+	document.getElementById('group-buttons').style.visibility = 'hidden';
+	setTimeout(function () {
+		document.getElementById('group-buttons').style.visibility = 'visible';
+	}, 5000);
 }
 
 

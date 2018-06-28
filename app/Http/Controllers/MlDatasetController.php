@@ -30,17 +30,6 @@ class MlDatasetController extends Controller
 		}
 		
 		MlDataset::insertRow($doc_id, $category, $doc_text);
-		
-		/* якщо кінцевим рішенням може бути документ тільки з певної категорії,
-		відносимо його тієї категорії*/
-		switch ($category) {
-			case 11:
-				MlDataset::insertRow($doc_id, 14, $doc_text);
-				break;
-			case 20:
-				MlDataset::insertRow($doc_id, 23, $doc_text);
-				break;
-		}
 	}
 	
 	
@@ -69,7 +58,7 @@ class MlDatasetController extends Controller
 		// заміна с у д д я => суддя
 		$valid_text = preg_replace("/(\w ){4,}\w/u", "суддя", $valid_text);
 		// видалення ПІБ судді
-		$valid_text = preg_replace("/суддя.+|головуючий.+/u", "", $valid_text);
+		$valid_text = preg_replace("/суддя.+|головуючий.+/u", " ", $valid_text);
 		// видалення останнього речення
 		$valid_text = preg_replace("/(.+[.,])(.+)$/us", "$1", $valid_text);
 		// видалення знаків пунктуації
@@ -78,6 +67,8 @@ class MlDatasetController extends Controller
 		$valid_text = preg_replace("/\(.+\)/u", "", $valid_text);
 		// видалення цифр
 		$valid_text = preg_replace("/\d+/u", "", $valid_text);
+		// видалення №/// конструкцій
+		$valid_text = preg_replace("/№\W+/u", " ", $valid_text);
 		// видалення сполучників і скорочень
 		$valid_text = preg_replace("/\s.{1,3}\s/u", " ", $valid_text);
 		// видалення задвоєних пробільних символів

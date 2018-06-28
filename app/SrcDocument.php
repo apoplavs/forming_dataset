@@ -3,6 +3,7 @@
 namespace TOEcyd;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SrcDocument extends Model
@@ -29,7 +30,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 1)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	/**
@@ -51,7 +52,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 1)
 			->where('judgment_code', 3)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	/**
@@ -63,7 +64,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function criminal1() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [17, 18, 19, 20, 21])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [17, 18, 19, 20, 21])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -73,7 +79,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 2)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	/**
@@ -85,7 +91,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function criminal2() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [22, 23, 24])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [22, 23, 24])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -95,7 +106,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 2)
 			->where('judgment_code', 1)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	/**
@@ -158,7 +169,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function adminoffense1() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [1, 2, 3, 4])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [1, 2, 3, 4])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -168,7 +184,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 5)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	
@@ -181,7 +197,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function adminoffense2() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [5, 6, 7])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [5, 6, 7])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -191,7 +212,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 5)
 			->where('judgment_code', 2)
 			->where('instance_code', 3)
-			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(50)->get());
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
 	
