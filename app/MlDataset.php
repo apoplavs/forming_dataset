@@ -20,8 +20,6 @@ class MlDataset extends Model
 		$is_first = static::select('category')
 			->where('doc_id', '=', $doc_id)
 			->first();
-		// todo зробити перевірку випадку $category=11 OR $category=14
-		// todo щоб записувалось окремим записом а не в confirm_category
 		// якщо це перший документ, вносимо в БД, в іншому випадку confirm_category
 		if ($is_first == NULL) {
 			static::insert(['doc_id' => $doc_id, 'category' => $category, 'doc_text' => $doc_text, 'by_user' => Auth::user()->id]);
@@ -31,15 +29,19 @@ class MlDataset extends Model
 		}
 		
 		/* якщо кінцевим рішенням може бути документ тільки з певної категорії,
-		відносимо його тієї категорії*/
-		switch ($category) {
-			case 11:
-				MlDataset::insertRow($doc_id, 14, $doc_text);
-				break;
-			case 20:
-				MlDataset::insertRow($doc_id, 23, $doc_text);
-				break;
-		}
+		відносимо його тієї категорії
+		todo потрібно буде скопіювати після завершення фрмування датасету
+		вся категорія 11  ==  14
+		вся категорія 20  ==  23*/
+		
+		// switch ($category) {
+		// 	case 11:
+		// 		MlDataset::insertRow($doc_id, 14, $doc_text);
+		// 		break;
+		// 	case 20:
+		// 		MlDataset::insertRow($doc_id, 23, $doc_text);
+		// 		break;
+		// }
 		
 	}
 }

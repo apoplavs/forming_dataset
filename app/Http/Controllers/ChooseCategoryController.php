@@ -128,6 +128,14 @@ class ChooseCategoryController extends Controller
 				];
 				$other = "16";
 				break;
+			case 3:
+				$doc_set = SrcDocument::civil3();
+				$buttons = [
+					["name"=> "рішення вистояло в апеляції", "val"=> "28"],
+					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "29"],
+				];
+				$other = "30";
+				break;	
 		}
 		if (count($doc_set) < 3) {
 			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
@@ -162,6 +170,14 @@ class ChooseCategoryController extends Controller
 				];
 				$other = "24";
 				break;
+			case 3:
+				$doc_set = SrcDocument::criminal3();
+				$buttons = [
+					["name"=> "рішення вистояло в апеляції", "val"=> "31"],
+					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "32"],
+				];
+				$other = "33";
+				break;		
 		}
 		if (count($doc_set) < 3) {
 			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
@@ -205,6 +221,14 @@ class ChooseCategoryController extends Controller
 				];
 				$other = "7";
 				break;
+			case 3:
+				$doc_set = SrcDocument::adminoffense3();
+				$buttons = [
+					["name"=> "рішення вистояло в апеляції", "val"=> "25"],
+					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "26"],
+				];
+				$other = "27";
+				break;		
 		}
 		if (count($doc_set) < 3) {
 			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');

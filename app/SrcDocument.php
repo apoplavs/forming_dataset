@@ -20,7 +20,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function civil1() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [8, 9, 10, 11, 12])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [8, 9, 10, 11, 12])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -42,7 +47,12 @@ class SrcDocument extends Model
 	 * SrcDocument[]
 	 */
 	public static function civil2() {
-		$busy_docs_arr = DB::table('ml_datasets')->select('doc_id')->whereIn('category', [13, 14, 15, 16])->get()
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [13, 14, 15, 16])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
 			->toArray();
 		$busy_docs = [];
 		foreach($busy_docs_arr as $arr_item) {
@@ -54,6 +64,39 @@ class SrcDocument extends Model
 			->where('instance_code', 3)
 			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
+
+	/**
+	 * повертає набір цивільно-правових документів
+	 * для визначення типів кінцевих рішень
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 * \Illuminate\Database\Query\Builder[]
+	 * \Illuminate\Support\Collection
+	 * SrcDocument[]
+	 */
+	public static function civil3() {
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [28, 29, 30])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
+		return (static::select('doc_id', 'doc_text')
+			->where('justice_kind', 1)
+			->where('judgment_code', 5)
+			->where('instance_code', 2)
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
+	}
+
+
+
+
+
+
 	
 	/**
 	 * повертає набір документів в кримінальному провадженні
@@ -108,6 +151,37 @@ class SrcDocument extends Model
 			->where('instance_code', 3)
 			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
+
+	/**
+	 * повертає набір документів в кримінальному провадженні
+	 * для визначення чи вистояло рішення суду 1 інстанції в апеляції
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 * \Illuminate\Database\Query\Builder[]
+	 * \Illuminate\Support\Collection
+	 * SrcDocument[]
+	 */
+	public static function criminal3() {
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [31, 32, 33])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
+		return (static::select('doc_id', 'doc_text')
+			->where('justice_kind', 2)
+			->where('judgment_code', 5)
+			->where('instance_code', 2)
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
+	}
+
+
+
+
 	
 	/**
 	 * повертає набір документів
@@ -159,6 +233,9 @@ class SrcDocument extends Model
 		return ;
 	}
 	
+
+
+
 	
 	/**
 	 * повертає набір документів в провадженні КУпАП
@@ -184,6 +261,7 @@ class SrcDocument extends Model
 			->where('justice_kind', 5)
 			->where('judgment_code', 5)
 			->where('instance_code', 3)
+			// ->where('doc_id', '<', 43424364)
 			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
 	
@@ -214,6 +292,37 @@ class SrcDocument extends Model
 			->where('instance_code', 3)
 			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
 	}
+
+	/**
+	 * повертає набір документів в провадженні КУпАП
+	 * для визначення чи вистояло рішення суду 1 інстанції в апеляції
+	 * @return \Illuminate\Database\Eloquent\Collection
+	 * \Illuminate\Database\Query\Builder[]
+	 * \Illuminate\Support\Collection
+	 * SrcDocument[]
+	 */
+	public static function adminoffense3() {
+		$busy_docs_arr = DB::table('ml_datasets')
+			->select('doc_id')
+			->whereIn('category', [25, 26, 27])
+			->where('by_user', '=', Auth::user()->id)
+			->orWhere('confirm_category', '!=', 0)
+			->get()
+			->toArray();
+		$busy_docs = [];
+		foreach($busy_docs_arr as $arr_item) {
+			$busy_docs[] = $arr_item->doc_id;
+		}
+		return (static::select('doc_id', 'doc_text')
+			->where('justice_kind', 5)
+			->where('instance_code', 2)
+			->whereNotIn('doc_id', $busy_docs)->inRandomOrder()->take(20)->get());
+	}
+
+
+
+
+
 	
 	
 	/**

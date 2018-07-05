@@ -61,6 +61,12 @@
                                         &nbsp; Визначення типів кінцевих рішень
                                     </label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="type-documents" id="appeal-secision" value="3" required>
+                                    <label class="form-check-label" for="appeal-secision">
+                                        &nbsp; Визначення чи вистояло рішення суду 1 інстанції в апеляції
+                                    </label>
+                                </div>
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
                                         <button type="submit" class="btn btn-primary">

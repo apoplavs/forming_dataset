@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::post('set-doctype', 'MlDatasetController@store');
+// Route::get('set-doctype', 'MlDatasetController@store');
 
 Route::get('home', 'HomeController@index')->name('home');
 

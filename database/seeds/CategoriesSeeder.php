@@ -14,12 +14,20 @@ class CategoriesSeeder extends Seeder
     	// нову категорію додавати в початок масиву
     	$categories = [
     	
-//			['id' => '24', 'justice_kind' => '1', 'name' => ''],
-//			['id' => '23', 'justice_kind' => '1', 'name' => ''],
-//			['id' => '22', 'justice_kind' => '1', 'name' => ''],
-//			['id' => '21', 'justice_kind' => '1', 'name' => ''],
-//			['id' => '20', 'justice_kind' => '1', 'name' => ''],
-//			['id' => '25', 'justice_kind' => '1', 'name' => 'Інші стадії'],
+//			['id' => '35', 'justice_kind' => '1', 'name' => ''],
+//			['id' => '34', 'justice_kind' => '1', 'name' => ''],
+
+    		['id' => '33', 'justice_kind' => '2', 'name' => 'інший документ'],
+			['id' => '32', 'justice_kind' => '2', 'name' => 'рішення не вистояло в апеляції'],
+			['id' => '31', 'justice_kind' => '2', 'name' => 'рішення вистояло в апеляції'],
+
+			['id' => '30', 'justice_kind' => '1', 'name' => 'інший документ'],
+			['id' => '29', 'justice_kind' => '1', 'name' => 'рішення не вистояло в апеляції'],
+			['id' => '28', 'justice_kind' => '1', 'name' => 'рішення вистояло в апеляції'],
+
+			['id' => '27', 'justice_kind' => '5', 'name' => 'інший документ'],
+			['id' => '26', 'justice_kind' => '5', 'name' => 'рішення не вистояло в апеляції'],
+			['id' => '25', 'justice_kind' => '5', 'name' => 'рішення вистояло в апеляції'],
 		
 			['id' => '24', 'justice_kind' => '2', 'name' => 'Інший вирок'],
 			['id' => '23', 'justice_kind' => '2', 'name' => 'Особа звільнена від відповідальності'],

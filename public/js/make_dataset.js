@@ -89,7 +89,7 @@ function hideButtons() {
 	document.getElementById('group-buttons').style.visibility = 'hidden';
 	setTimeout(function () {
 		document.getElementById('group-buttons').style.visibility = 'visible';
-	}, 5000);
+	}, 4000);
 }
 
 
