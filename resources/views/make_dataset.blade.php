@@ -19,7 +19,7 @@
                         <hr>
                         <div id="bottom-of-page"></div>
                         <div id="group-buttons" align="center">
-                            <div id="choose-buttons" class="btn-group-lg" role="group"></div>
+                            <div id="choose-buttons" class="btn-group-lg row text-center" role="group"></div>
                             {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
                             <br>
                             <div class="btn-group btn-group" role="group">

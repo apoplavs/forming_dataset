@@ -52,19 +52,19 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="type-documents" id="stage-proceeding" value="1" required checked>
                                     <label class="form-check-label" for="stage-proceeding">
-                                        &nbsp; Ідентифікація документів, які впливають на строки провадження
+                                        &nbsp; Своєчасність
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="type-documents" id="types-decision" value="2" required>
                                     <label class="form-check-label" for="types-decision">
-                                        &nbsp; Визначення типів кінцевих рішень
+                                        &nbsp; Типи кінцевих рішень
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="type-documents" id="appeal-secision" value="3" required>
                                     <label class="form-check-label" for="appeal-secision">
-                                        &nbsp; Визначення чи вистояло рішення суду 1 інстанції в апеляції
+                                        &nbsp;  Компетентність 1 (апеляція)
                                     </label>
                                 </div>
                                 <div class="form-group">

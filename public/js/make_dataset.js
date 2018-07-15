@@ -84,12 +84,12 @@ function nextDoc() {
     $("html, body").animate({ scrollTop: $('body').height() - 800 }, 1000);
 }
 
-// приховує кнопки на 5 сек
+// приховує кнопки на 2 сек
 function hideButtons() {
 	document.getElementById('group-buttons').style.visibility = 'hidden';
 	setTimeout(function () {
 		document.getElementById('group-buttons').style.visibility = 'visible';
-	}, 4000);
+	}, 2000);
 }
 
 
@@ -104,7 +104,7 @@ function stopFormDataset() {
 $(document).ready(function () {
     // додавання кнопок вибору
     buttons.forEach(function(button) {
-        $('#choose-buttons').append('<button class="btn btn-primary" onclick="setCategory('+button.val+')">'+button.name+'</button>');
+        $('#choose-buttons').append('<button class="btn btn-primary col-xs-8 col-xs-offset-2 col-sm-offset-0 col-sm-6 col-md-4 col-md-offset-1" onclick="setCategory('+button.val+')">'+button.name+'</button>');
     });
     // вивід першого документу
 	nextDoc();

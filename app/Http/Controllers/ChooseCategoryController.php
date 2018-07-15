@@ -112,9 +112,9 @@ class ChooseCategoryController extends Controller
 			case 1:
 				$doc_set = SrcDocument::civil1();
 				$buttons = [
-					["name"=> "початок провадження", "val"=> "8"],
-					["name"=> "зупинення провадження", "val"=> "9"],
-					["name"=> "відновлення провадження", "val"=> "10"],
+					["name"=> "початок", "val"=> "8"],
+					["name"=> "зупинення", "val"=> "9"],
+					["name"=> "відновлення", "val"=> "10"],
 					["name"=> "кінцеве рішення", "val"=> "11"],
 				];
 				$other = "12";
@@ -122,23 +122,23 @@ class ChooseCategoryController extends Controller
 			case 2:
 				$doc_set = SrcDocument::civil2();
 				$buttons = [
-					["name"=> "задоволено вимоги позивача", "val"=> "13"],
-					["name"=> "справу вирішено іншим чином", "val"=> "14"],
-					["name"=> "відмовлено у позові", "val"=> "15"]
+					["name"=> "задоволено", "val"=> "13"],
+					["name"=> "іншим чином", "val"=> "14"],
+					["name"=> "відмовлено", "val"=> "15"]
 				];
 				$other = "16";
 				break;
 			case 3:
 				$doc_set = SrcDocument::civil3();
 				$buttons = [
-					["name"=> "рішення вистояло в апеляції", "val"=> "28"],
-					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "29"],
+					["name"=> "вистояло", "val"=> "28"],
+					["name"=> "НЕ вистояло", "val"=> "29"],
 				];
 				$other = "30";
 				break;	
 		}
 		if (count($doc_set) < 3) {
-			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
+			return ('<h1>Закінчився датасет</h1><p>Сходи на кухню, візьми цукерку і можеш переходити до наступної категорії</p>');
 		}
 		$doc_set = json_encode($doc_set);
     	$buttons = json_encode($buttons);
@@ -155,9 +155,9 @@ class ChooseCategoryController extends Controller
 			case 1:
 				$doc_set = SrcDocument::criminal1();
 				$buttons = [
-					["name"=> "початок провадження", "val"=> "17"],
-					["name"=> "зупинення провадження", "val"=> "18"],
-					["name"=> "відновлення провадження", "val"=> "19"],
+					["name"=> "початок", "val"=> "17"],
+					["name"=> "зупинення", "val"=> "18"],
+					["name"=> "відновлення", "val"=> "19"],
 					["name"=> "кінцеве рішення", "val"=> "20"]
 				];
 				$other = "21";
@@ -165,22 +165,23 @@ class ChooseCategoryController extends Controller
 			case 2:
 				$doc_set = SrcDocument::criminal2();
 				$buttons = [
-					["name"=> "особу притягнено до відповідальності", "val"=> "22"],
-					["name"=> "особа звільнена від відповідальності", "val"=> "23"]
+					["name"=> "притягнути до відповідальності", "val"=> "22"],
+					["name"=> "звільнити від відповідальності", "val"=> "23"]
 				];
 				$other = "24";
 				break;
 			case 3:
 				$doc_set = SrcDocument::criminal3();
 				$buttons = [
-					["name"=> "рішення вистояло в апеляції", "val"=> "31"],
-					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "32"],
+					["name"=> "вистояло", "val"=> "31"],
+					["name"=> "НЕ вистояло", "val"=> "32"],
 				];
 				$other = "33";
 				break;		
 		}
 		if (count($doc_set) < 3) {
-			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
+			return ('<h1>Закінчився датасет</h1><p>Вітаю '.Auth::user()->name.
+				'.<br>Сходи на кухню, візьми цукерку і можеш переходити до наступної категорії</p>');
 		}
 		$doc_set = json_encode($doc_set);
 		$buttons = json_encode($buttons);
@@ -207,31 +208,31 @@ class ChooseCategoryController extends Controller
 			case 1:
 				$doc_set = SrcDocument::adminoffense1();
 				$buttons = [
-					["name"=> "початок провадження", "val"=> "1"],
-					["name"=> "зупинення провадження", "val"=> "2"],
-					["name"=> "відновлення провадження", "val"=> "3"]
+					["name"=> "початок", "val"=> "1"],
+					["name"=> "зупинення", "val"=> "2"],
+					["name"=> "відновлення", "val"=> "3"]
 				];
 				$other = "4";
 				break;
 			case 2:
 				$doc_set = SrcDocument::adminoffense2();
 				$buttons = [
-					["name"=> "на обвинуваченого накладається стягнення", "val"=> "5"],
-					["name"=> "обвинувачений звільняється від відповідальності", "val"=> "6"]
+					["name"=> "накладено стягнення", "val"=> "5"],
+					["name"=> "звільнення від відповідальності", "val"=> "6"]
 				];
 				$other = "7";
 				break;
 			case 3:
 				$doc_set = SrcDocument::adminoffense3();
 				$buttons = [
-					["name"=> "рішення вистояло в апеляції", "val"=> "25"],
-					["name"=> "рішення НЕ вистояло в апеляції", "val"=> "26"],
+					["name"=> "вистояло", "val"=> "25"],
+					["name"=> "НЕ вистояло", "val"=> "26"],
 				];
 				$other = "27";
 				break;		
 		}
 		if (count($doc_set) < 3) {
-			return ('<h1>Закінчився датасет</h1><p>програміст не винен</p>');
+			return ('<h1>Закінчився датасет</h1><p>програміст не винен, можеш переходити до наступної категорії</p>');
 		}
 		$doc_set = json_encode($doc_set);
 		$buttons = json_encode($buttons);
